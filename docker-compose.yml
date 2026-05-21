@@ -1,0 +1,28 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: library-loans-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-library_loans}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - library_loans_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: library-loans-api
+    depends_on:
+      - postgres
+    environment:
+      SPRING_PROFILES_ACTIVE: postgres
+      DB_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-library_loans}
+      DB_USER: ${POSTGRES_USER:-postgres}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "${API_PORT:-8080}:8080"
+
+volumes:
+  library_loans_data:

@@ -1,16 +1,17 @@
 # Library Loans API
 
-API REST para controle de livros, leitores e empréstimos. O projeto foi criado para demonstrar regras de negócio além de CRUD simples.
+API REST para controle de livros, leitores e emprestimos. O projeto foi criado para demonstrar regras de negocio alem de CRUD simples.
 
 ## Funcionalidades
 
 - Cadastro e listagem de livros.
 - Cadastro e listagem de leitores.
-- Registro de empréstimos.
-- Devolução de livros.
-- Bloqueio de empréstimo para livro indisponível.
-- Listagem de empréstimos ativos, devolvidos e atrasados.
-- Documentação via Swagger UI.
+- Registro de emprestimos.
+- Devolucao de livros.
+- Bloqueio de emprestimo para livro indisponivel.
+- Listagem de emprestimos ativos, devolvidos e atrasados.
+- Documentacao via Swagger UI.
+- Execucao com H2 local ou PostgreSQL via Docker.
 
 ## Tecnologias
 
@@ -21,10 +22,11 @@ API REST para controle de livros, leitores e empréstimos. O projeto foi criado 
 - Bean Validation
 - H2 Database
 - PostgreSQL
+- Docker e Docker Compose
 - Maven
 - Swagger/OpenAPI
 
-## Como Executar
+## Como Executar Localmente
 
 ```bash
 mvn clean package
@@ -37,14 +39,27 @@ Swagger:
 http://localhost:8080/docs
 ```
 
-## Perfil PostgreSQL
+## Como Executar com Docker
+
+```bash
+cp .env.example .env
+docker compose up --build
+```
+
+API:
+
+```text
+http://localhost:8080
+```
+
+## Perfil PostgreSQL sem Docker
 
 ```bash
 mvn clean package
 java -jar target/library-loans-api-0.0.1-SNAPSHOT.jar --spring.profiles.active=postgres
 ```
 
-Variáveis:
+Variaveis:
 
 ```text
 DB_URL=jdbc:postgresql://localhost:5432/library_loans
@@ -86,7 +101,7 @@ Criar leitor:
 }
 ```
 
-Registrar empréstimo:
+Registrar emprestimo:
 
 ```json
 {
