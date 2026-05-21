@@ -27,7 +27,8 @@ API REST para controle de livros, leitores e empréstimos. O projeto foi criado 
 ## Como Executar
 
 ```bash
-mvn spring-boot:run
+mvn clean package
+java -jar target/library-loans-api-0.0.1-SNAPSHOT.jar
 ```
 
 Swagger:
@@ -39,7 +40,8 @@ http://localhost:8080/docs
 ## Perfil PostgreSQL
 
 ```bash
-mvn spring-boot:run -Dspring-boot.run.profiles=postgres
+mvn clean package
+java -jar target/library-loans-api-0.0.1-SNAPSHOT.jar --spring.profiles.active=postgres
 ```
 
 Variáveis:
