@@ -1,17 +1,17 @@
 # Library Loans API
 
-API REST para controle de livros, leitores e emprestimos. O projeto foi criado para demonstrar regras de negocio alem de CRUD simples.
+API REST para controle de livros, leitores e empréstimos. O projeto foi criado para demonstrar regras de negócio além de CRUD simples.
 
 ## Funcionalidades
 
 - Cadastro e listagem de livros.
 - Cadastro e listagem de leitores.
-- Registro de emprestimos.
-- Devolucao de livros.
-- Bloqueio de emprestimo para livro indisponivel.
-- Listagem de emprestimos ativos, devolvidos e atrasados.
-- Documentacao via Swagger UI.
-- Execucao com H2 local ou PostgreSQL via Docker.
+- Registro de empréstimos.
+- Devolução de livros.
+- Bloqueio de empréstimo para livro indisponível.
+- Listagem de empréstimos ativos, devolvidos e atrasados.
+- Documentação via Swagger UI.
+- Execução com H2 local ou PostgreSQL via Docker.
 
 ## Tecnologias
 
@@ -59,7 +59,7 @@ mvn clean package
 java -jar target/library-loans-api-0.0.1-SNAPSHOT.jar --spring.profiles.active=postgres
 ```
 
-Variaveis:
+Variáveis:
 
 ```text
 DB_URL=jdbc:postgresql://localhost:5432/library_loans
@@ -101,7 +101,7 @@ Criar leitor:
 }
 ```
 
-Registrar emprestimo:
+Registrar empréstimo:
 
 ```json
 {
